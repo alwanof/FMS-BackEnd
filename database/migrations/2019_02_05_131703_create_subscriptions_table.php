@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedsTable extends Migration
+class CreateSubscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateFeedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('feeds', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('body');
             $table->integer('user_id');
-            $table->integer('grp_ref')->default(0);
-            $table->dateTime('reminder')->nullable();
-            $table->dateTime('delete_at')->nullable();
-            $table->integer('favorite')->default(0);
+            $table->integer('group_id');
+            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('notification')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateFeedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feeds');
+        Schema::dropIfExists('subscriptions');
     }
 }
