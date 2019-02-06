@@ -17,10 +17,10 @@ class CreateFeedsTable extends Migration
             $table->increments('id');
             $table->text('body');
             $table->integer('user_id');
-            $table->integer('grp_ref')->default(0);
+            $table->tinyInteger('grp_ref')->default(0);
             $table->dateTime('reminder')->nullable();
             $table->dateTime('delete_at')->nullable();
-            $table->integer('favorite')->default(0);
+            $table->tinyInteger('favorite')->default(0);
             $table->timestamps();
         });
     }

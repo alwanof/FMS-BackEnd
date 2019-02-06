@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->string('pin');
             $table->string('title');
             $table->integer('user_id');
-            $table->integer('notification')->default(0);
+            $table->tinyInteger('notification')->default(0);
             $table->timestamps();
         });
     }
