@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    public function subscriptions()
+    public function users()
     {
-        return $this->hasMany('App\Subscriptions');
+        return $this->belongsToMany('App\User','App\Subscription');
     }
 }
